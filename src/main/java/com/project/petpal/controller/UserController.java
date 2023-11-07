@@ -25,8 +25,6 @@ public class UserController {
 
         logger.info("memberJoin 실행..");
 
-        userRepo.memberJoin(user);
-
         return check;
 
     }
