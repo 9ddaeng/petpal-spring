@@ -1,4 +1,4 @@
-package com.project.petpal.dto;
+package com.project.petpal.DTO;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.project.petpal.dto;
+package com.project.petpal.DTO;
 
 import org.springframework.stereotype.Component;
 
