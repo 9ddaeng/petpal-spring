@@ -1,8 +1,8 @@
 package com.project.petpal.Entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 @Table(name = "user")
+@AllArgsConstructor
+@Builder
 public class UserEntity {
 
     @Id
@@ -28,7 +30,7 @@ public class UserEntity {
     @Column(length = 50)
     private String user_address;
 
-    @Column
+    @CreationTimestamp
     private LocalDateTime user_join_date;
 
     @Column(length = 10, nullable = false)
