@@ -3,7 +3,6 @@ package com.project.petpal.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 @Table(name = "contentsReply")
 @Entity
