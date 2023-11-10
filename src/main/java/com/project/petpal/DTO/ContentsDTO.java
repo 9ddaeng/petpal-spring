@@ -1,14 +1,13 @@
 package com.project.petpal.DTO;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 
-@Component("ContentsDTO")
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@ToString
 public class ContentsDTO {
     private int contents_num;
     private Date contents_date;

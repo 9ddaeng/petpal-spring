@@ -1,12 +1,11 @@
 package com.project.petpal.DTO;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
-@Component("FollowDTO")
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@ToString
 public class FollowDTO {
     private int folower_user_num;
     private int folling_user_num;
