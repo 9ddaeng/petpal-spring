@@ -1,12 +1,11 @@
 package com.project.petpal.DTO;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
-@Component("NoticeDTO")
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@ToString
 public class NoticeDTO {
     private int notice_num;
     private int notice_type;

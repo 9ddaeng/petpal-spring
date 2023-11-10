@@ -1,15 +1,16 @@
 package com.project.petpal.DTO;
 
-import com.project.petpal.Entity.UserEntity;
 import lombok.*;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 
-@Component("UserDTO")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Component("UserDTO")
 public class UserDTO {
 
     private int user_num;
@@ -33,17 +34,6 @@ public class UserDTO {
         this.user_phone = user_phone;
     }
 
-    public UserDTO toEntity(){
-        UserDTO userDTO = UserDTO.builder()
-                .user_id(user_id)
-                .user_pwd(user_pwd)
-                .user_nick(user_nick)
-                .user_address(user_address)
-                .user_name(user_name)
-                .user_phone(user_phone)
-                .build();
 
-        return userDTO;
-    }
 
 }

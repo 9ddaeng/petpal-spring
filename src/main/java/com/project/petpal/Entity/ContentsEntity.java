@@ -3,6 +3,7 @@ package com.project.petpal.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 
 import java.sql.Date;
@@ -18,6 +19,7 @@ public class ContentsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int contents_num;
 
+    @CreationTimestamp
     private Date contents_date;
 
     @Column(length = 500, nullable = false)
