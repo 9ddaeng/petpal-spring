@@ -1,17 +1,15 @@
 package com.project.petpal.controller;
 
 import com.project.petpal.DTO.UserDTO;
-import com.project.petpal.Service.UserService;
-import jakarta.validation.constraints.NotNull;
-import lombok.NoArgsConstructor;
-import org.apache.catalina.connector.Request;
+import com.project.petpal.Service.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.project.petpal.repository.UserRepository;
 
+import java.util.ArrayList;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController("UserController")
 @RequestMapping(path="/")
@@ -22,21 +20,24 @@ public class UserController {
     UserDTO userDTO;
 
     @Autowired
-    UserRepository userRepo;
-
-    @Autowired
-    UserService userService;
+    UserServiceImpl userServiceImpl;
 
     private final static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @PostMapping("/memberJoin")
     public int memberJoin(@RequestBody UserDTO userDTO) {
-        int check = 0;
-
-        logger.info("user_name="+userDTO.getUser_name());
-
-        //userService.memberJoin(userDTO);
-
-        return check;
+        return userServiceImpl.memberJoin(userDTO);
     }
+
+//    @PostMapping("/login")
+//    public Optional<UserDTO> login(@RequestBody Map<String, String> user) {
+//        String user_id = user.get("user_id");
+//        String user_pwd = user.get("user_pwd");
+//
+//        Optional<UserDTO> userDTO1 = userServiceImpl.login(user_id, user_pwd);
+//
+//        logger.info(userDTO1.toString());
+//
+//        return userDTO1;
+//    }
 }

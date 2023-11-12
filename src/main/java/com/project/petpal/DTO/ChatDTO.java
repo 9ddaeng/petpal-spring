@@ -1,12 +1,13 @@
 package com.project.petpal.DTO;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.stereotype.Component;
 
-@Component
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@ToString
 public class ChatDTO {
     private int chat_room_num;
 }

@@ -2,39 +2,28 @@ package com.project.petpal.Service;
 
 import com.project.petpal.DTO.UserDTO;
 import com.project.petpal.Entity.UserEntity;
-import com.project.petpal.repository.UserRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
-public class UserService {
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Optional;
 
-    private final static Logger logger = LoggerFactory.getLogger(UserService.class);
+public interface UserService {
 
-    @Autowired
-    UserDTO userDTO;
+    public int memberJoin(UserDTO user);
 
-    @Autowired
-    UserRepository userRepository;
+//    public UserDTO login(String user_id, String user_pwd);
 
-    public int memberJoin(UserDTO userDTO) throws Exception {
 
-        int check = 0;
+    default UserEntity toEntity(UserDTO user) {
+        UserEntity entity = UserEntity.builder()
+                .user_id(user.getUser_id())
+                .user_pwd(user.getUser_pwd())
+                .user_nick(user.getUser_nick())
+                .user_name(user.getUser_name())
+                .user_address(user.getUser_address())
+                .user_phone(user.getUser_phone())
+                .build();
 
-//        UserEntity user = userRepository.save(UserEntity.builder().
-//                user_name("김제니").
-//                user_pwd("jennie12").
-//                user_id("jennie").
-//                user_nick("제니").
-//                user_phone("01033333").build());
-
-        logger.info("userService 실행");
-
-        return check;
+        return entity;
     }
-
-
-
 }
