@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
@@ -21,16 +24,18 @@ public class UserServiceImpl implements UserService{
     @Autowired
     UserRepository userRepo;
 
+    @Override
     public int memberJoin(UserDTO user) {
-
         UserEntity entity = toEntity(user);
         userRepo.save(entity);
-
-        logger.info("userService 실행");
-
         return entity.getUser_num();
     }
 
+//    @Override
+//    public UserDTO login(String user_id, String user_pwd) {
+//        Optional<UserEntity> userEntity = userRepo.findByStringId(user_id, user_pwd);
+//        return userDTO.convertToUserDTO(userEntity);
+//    }
 
 
 }

@@ -7,6 +7,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Optional;
+
 @RestController("UserController")
 @RequestMapping(path="/")
 @CrossOrigin
@@ -16,16 +20,24 @@ public class UserController {
     UserDTO userDTO;
 
     @Autowired
-    UserServiceImpl userService;
+    UserServiceImpl userServiceImpl;
 
     private final static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @PostMapping("/memberJoin")
     public int memberJoin(@RequestBody UserDTO userDTO) {
-        int user_num = 0;
-        logger.info("user_name="+userDTO.getUser_name());
-        user_num = userService.memberJoin(userDTO);
-
-        return user_num;
+        return userServiceImpl.memberJoin(userDTO);
     }
+
+//    @PostMapping("/login")
+//    public Optional<UserDTO> login(@RequestBody Map<String, String> user) {
+//        String user_id = user.get("user_id");
+//        String user_pwd = user.get("user_pwd");
+//
+//        Optional<UserDTO> userDTO1 = userServiceImpl.login(user_id, user_pwd);
+//
+//        logger.info(userDTO1.toString());
+//
+//        return userDTO1;
+//    }
 }
