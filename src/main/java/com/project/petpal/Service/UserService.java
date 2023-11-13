@@ -11,7 +11,7 @@ public interface UserService {
 
     public int memberJoin(UserDTO user);
 
-//    public UserDTO login(String user_id, String user_pwd);
+    public UserDTO login(String user_id, String user_pwd) throws NullPointerException;
 
 
     default UserEntity toEntity(UserDTO user) {

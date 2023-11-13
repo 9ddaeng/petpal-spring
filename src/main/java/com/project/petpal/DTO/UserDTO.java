@@ -1,6 +1,7 @@
 package com.project.petpal.DTO;
 
 import com.project.petpal.Entity.UserEntity;
+import jakarta.validation.constraints.Null;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +36,20 @@ public class UserDTO {
         this.user_name = user_name;
         this.user_phone = user_phone;
         this.user_join_date = user_join_date;
+    }
+
+    public static UserDTO toDTO(UserEntity entity) throws NullPointerException{
+
+        return UserDTO.builder()
+                .user_num(entity.getUser_num())
+                .user_id(entity.getUser_id())
+                .user_pwd(entity.getUser_pwd())
+                .user_nick(entity.getUser_nick())
+                .user_name(entity.getUser_name())
+                .user_address(entity.getUser_address())
+                .user_join_date(entity.getUser_join_date())
+                .user_phone(entity.getUser_phone())
+                .build();
     }
 
 }
