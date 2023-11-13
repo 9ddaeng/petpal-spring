@@ -3,9 +3,11 @@ package com.project.petpal.Service;
 import com.project.petpal.DTO.UserDTO;
 import com.project.petpal.Entity.UserEntity;
 import com.project.petpal.repository.UserRepository;
+import jakarta.validation.constraints.Null;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.batch.core.configuration.xml.ExceptionElementParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,12 +34,24 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserDTO login(String user_id, String user_pwd) {
+    public UserDTO login(String user_id, String user_pwd) throws NullPointerException {
         UserEntity userEntity = userRepo.findByStringId(user_id, user_pwd);
 
-        logger.info("login serviceimpl");
+        try {
+            return UserDTO.toDTO(userEntity);
+        } catch(Exception e) {
+            e.printStackTrace();
+            userDTO.setUser_num(0);
+            return userDTO;
+        }
 
-        return UserDTO.toDTO(userEntity);
+
+
+
+
+
+
+
     }
 
 

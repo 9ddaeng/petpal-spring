@@ -2,6 +2,7 @@ package com.project.petpal.controller;
 
 import com.project.petpal.DTO.UserDTO;
 import com.project.petpal.Service.UserServiceImpl;
+import jakarta.validation.constraints.Null;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public UserDTO login(@RequestBody Map<String, String> user) {
+    public UserDTO login(@RequestBody Map<String, String> user) throws NullPointerException {
         String user_id = user.get("user_id");
         String user_pwd = user.get("user_pwd");
 
