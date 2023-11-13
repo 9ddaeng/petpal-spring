@@ -13,6 +13,13 @@ public interface UserService {
 
     public UserDTO login(String user_id, String user_pwd) throws NullPointerException;
 
+    public int valUserName(String user_name);
+
+    public int valUserNick(String user_nick);
+
+    public int valUserIdPwd(String user_id, String user_pwd);
+
+
 
     default UserEntity toEntity(UserDTO user) {
         UserEntity entity = UserEntity.builder()

@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private final static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
@@ -39,20 +39,27 @@ public class UserServiceImpl implements UserService{
 
         try {
             return UserDTO.toDTO(userEntity);
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             userDTO.setUser_num(0);
             return userDTO;
         }
 
-
-
-
-
-
-
-
     }
 
+    @Override
+    public int valUserName(String user_name) {
+        return userRepo.valUserName(user_name);
+    }
+
+    @Override
+    public int valUserNick(String user_nick) {
+        return userRepo.valUserNick(user_nick);
+    }
+
+    @Override
+    public int valUserIdPwd(String user_id, String user_pwd) {
+        return userRepo.valUserIdPwd(user_id, user_pwd);
+    }
 
 }
