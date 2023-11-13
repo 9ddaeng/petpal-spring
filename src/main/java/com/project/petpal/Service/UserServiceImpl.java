@@ -31,11 +31,14 @@ public class UserServiceImpl implements UserService{
         return entity.getUser_num();
     }
 
-//    @Override
-//    public UserDTO login(String user_id, String user_pwd) {
-//        Optional<UserEntity> userEntity = userRepo.findByStringId(user_id, user_pwd);
-//        return userDTO.convertToUserDTO(userEntity);
-//    }
+    @Override
+    public UserDTO login(String user_id, String user_pwd) {
+        UserEntity userEntity = userRepo.findByStringId(user_id, user_pwd);
+
+        logger.info("login serviceimpl");
+
+        return UserDTO.toDTO(userEntity);
+    }
 
 
 }

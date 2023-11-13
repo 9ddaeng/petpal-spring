@@ -29,15 +29,15 @@ public class UserController {
         return userServiceImpl.memberJoin(userDTO);
     }
 
-//    @PostMapping("/login")
-//    public Optional<UserDTO> login(@RequestBody Map<String, String> user) {
-//        String user_id = user.get("user_id");
-//        String user_pwd = user.get("user_pwd");
-//
-//        Optional<UserDTO> userDTO1 = userServiceImpl.login(user_id, user_pwd);
-//
-//        logger.info(userDTO1.toString());
-//
-//        return userDTO1;
-//    }
+    @PostMapping("/login")
+    public UserDTO login(@RequestBody Map<String, String> user) {
+        String user_id = user.get("user_id");
+        String user_pwd = user.get("user_pwd");
+
+        logger.info("login controller");
+        UserDTO userDTO1 = userServiceImpl.login(user_id, user_pwd);
+        logger.info(userDTO1.toString());
+
+        return userDTO1;
+    }
 }
